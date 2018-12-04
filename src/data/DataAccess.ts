@@ -13,44 +13,30 @@ export class DataAccess{
     }
 
 
-    public getLineChartData(){
+    loadData(): Promise<number[]> {
+        return Promise.resolve([5,3,2]);
+    }
 
-        /*
-        let dataObject = {};
-        dataObject["labels"] = {};
-        let i : number;
-        for(i=0; i < 20; i++){
-            dataObject["labels"][i]=i;
-        }
-        dataObject["datasets"] = {};
-        dataObject["datasets"]["label"] = "My First dataset";
-        dataObject["datasets"]["fillColor"] = "rgba(220,220,220,0.2)";
-        dataObject["datasets"]["strokeColor"] = "rgba(220,220,220,1)";
-        dataObject["datasets"]["pointColor"] = "rgba(220,220,220,1)";
-        dataObject["datasets"]["pointStrokeColor"] = "#fff";
-        dataObject["datasets"]["pointHighlightFill"] = "#fff";
-        dataObject["datasets"]["pointHighlightStroke"] = "rgba(220,220,220,1)";
 
-        dataObject["datasets"]["data"]={};
-        for(i=0; i < 20; i++){
-            dataObject["datasets"]["data"][i]= i * Math.random();
-        }
 
-        return dataObject;
+    getLineChartData(): Promise<any>{
 
-        // */
+        
 
+        // Fetch API --> MDN Fetch API
+        // fetch()
+        
         let values = new Array(20);
         let i : number;
         for(i=0; i < 20; i++){
-            values[i]= i;
+            values[i]= i*Math.random();
         }
 
         let now : Date;
         let labels = new Array(20);
         for(i=0; i < 20; i++){
             now = new Date();
-            now.setTime(now.getTime()-((20-i)*3600000));
+            now.setTime(now.getTime()-((19-i)*3600000));
             labels[i]= now.toTimeString().split(' ')[0];
         }
 
@@ -70,10 +56,17 @@ export class DataAccess{
             ]
         };
 
-        
+        // only fetch here, cause fetch already returns the promise
 
-        return dataObject;
-         // */
+        // fetch('http://example.com/movies.json')
+        // .then(function(response) {
+        //   return response.json();
+        // })
+        // .then(function(myJson) {
+        //   console.log(JSON.stringify(myJson));
+        // });
+        return Promise.resolve(<any>dataObject);
+        // */
     }
 
 }
