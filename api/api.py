@@ -1,6 +1,7 @@
 from flask import Flask, request
 from flask_restful import Resource, Api
 import random
+import mysql.connector
 
 app = Flask(__name__)
 api = Api(app)
@@ -17,12 +18,29 @@ class State(Resource):
 
 class PVDayDataProvider(Resource):
     def get(self):
+        
         data = []
         labels = []
 
-        for i in range(20):
-            data.append(i + random.randint(0,i)+55)
-            labels.append(i)
+        mydb = mysql.connector.connect(
+        host="localhost",
+        user="user",
+        passwd="P.assword123",
+        database="monitoring"
+        )
+
+        mycursor = mydb.cursor()
+
+        mycursor.execute("SELECT TIME(Timestamp) AS Label, P_PV FROM data  WHERE DATE(`Timestamp`) = CURDATE() ORDER BY Timestamp;")
+
+        myresult = mycursor.fetchall()
+
+        for row in myresult:
+            labels.append(str(row[0]))
+            data.append(row[1])
+       
+
+        
 
         return {
             "labels":labels,
