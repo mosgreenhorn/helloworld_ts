@@ -11,13 +11,21 @@ import { ChartOptionProvider } from './data/ChartOptionProvider';
 // load data via fetch api from backend
 // transform data
 
-function update(): Promise<any> {
-  return DataAccess.getInstance().getLineChartData();
+function update(){
+  DataAccess.getInstance().getLineChartData()
+    .then(function(response) {
+      if(response.status == 200){
+        response.json().then(function(data : any) {
+          render(data, chartOptions);
+        });
+      }
+      
+    });
 }
 
 const chartOptions = ChartOptionProvider.getInstance().getLineChartOptions();
 const onClick = () => {
-  update().then((response) => render(response, chartOptions));
+  update();
 }
 
 
@@ -28,7 +36,7 @@ function render(data: any, options: any) {
   );
 }
 
-update().then((response) => render(response, chartOptions));
+update();
 
 /*
 ReactDOM.render(

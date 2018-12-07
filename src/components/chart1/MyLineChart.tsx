@@ -15,7 +15,7 @@ class MyLineChart extends React.Component<ILineChartDataProps> {
     public render(){
         const {data, options, onClick} = this.props;
         
-        return <div>
+        return <div className="LineChart">
             <button type="button" onClick={onClick}>Click me!</button>
             <this.LineChart data={data} options={options} width="800" height="400"/>
             

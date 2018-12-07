@@ -21,10 +21,22 @@ export class DataAccess{
 
     getLineChartData(): Promise<any>{
 
-        
+        return Promise.resolve(fetch("http://localhost:5000/api/day"));
 
+
+    
+        fetch("http://localhost:5000/api/day")
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(myJson) {
+                console.log(JSON.stringify(myJson));
+            });
+           // */
         // Fetch API --> MDN Fetch API
         // fetch()
+
+       
         
         let values = new Array(20);
         let i : number;
@@ -67,6 +79,7 @@ export class DataAccess{
         // });
         return Promise.resolve(<any>dataObject);
         // */
+        
     }
 
 }

@@ -16,10 +16,21 @@ export class ChartOptionProvider{
     public getLineChartOptions(){
         return {
 
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        min: 0,
+                        max: 300
+                    }
+                }]
+            },
+        
+
             scaleBeginAtZero: true,
             
             ///Boolean - Whether grid lines are shown across the chart
             scaleShowGridLines : true,
+
         
             //String - Colour of the grid lines
             scaleGridLineColor : "rgba(0,0,0,.05)",
