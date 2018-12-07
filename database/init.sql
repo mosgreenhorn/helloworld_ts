@@ -11,3 +11,6 @@ CREATE TABLE `data`
     `E_Total` DOUBLE NULL , 
 PRIMARY KEY
 (`Timestamp`)) ENGINE = InnoDB;
+
+
+GRANT ALL PRIVILEGES ON monitoring.* TO 'user'@'localhost' IDENTIFIED BY 'P.assword123';
