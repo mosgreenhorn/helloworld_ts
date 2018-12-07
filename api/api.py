@@ -18,9 +18,15 @@ class State(Resource):
 
 class PVDayDataProvider(Resource):
     def get(self):
+
+        hours = 25
         
         data = []
         labels = []
+        
+        for i in range(hours):
+            labels.append(str(i)+":00")
+            data.append(None)
 
         mydb = mysql.connector.connect(
         host="localhost",
@@ -30,17 +36,13 @@ class PVDayDataProvider(Resource):
         )
 
         mycursor = mydb.cursor()
-
-        mycursor.execute("SELECT TIME(Timestamp) AS Label, P_PV FROM data  WHERE DATE(`Timestamp`) = CURDATE() ORDER BY Timestamp;")
-
+        mycursor.execute("SELECT HOUR(Timestamp), AVG(P_PV) FROM data  WHERE DATE(`Timestamp`) = SUBDATE(CURDATE(),0) GROUP BY HOUR(Timestamp)")
         myresult = mycursor.fetchall()
 
         for row in myresult:
-            labels.append(str(row[0]))
-            data.append(row[1])
+            data[row[0]] = row[1]
        
 
-        
 
         return {
             "labels":labels,
