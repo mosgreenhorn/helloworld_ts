@@ -17,7 +17,7 @@ class MyLineChart extends React.Component<ILineChartDataProps> {
         
         return <div className="LineChart">
             <button type="button" onClick={onClick}>Refresh</button>
-            <this.LineChart data={data} options={options} width="800" height="400"/>
+            <this.LineChart data={data} options={options} width="1200" height="600"/>
             
         </div>
     }

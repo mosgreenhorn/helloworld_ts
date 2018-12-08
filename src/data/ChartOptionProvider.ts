@@ -16,15 +16,8 @@ export class ChartOptionProvider{
     public getLineChartOptions(){
         return {
 
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        min: 0,
-                        max: 300
-                    }
-                }]
-            },
-        
+            responsive: true,
+            showScale: true,
 
             scaleBeginAtZero: true,
             
@@ -71,7 +64,6 @@ export class ChartOptionProvider{
             //Boolean - Whether to fill the dataset with a colour
             datasetFill : true,
           
-                 
             //Boolean - Whether to horizontally center the label and point dot inside the grid
             offsetGridLines : false
         };
