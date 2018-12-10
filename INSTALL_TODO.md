@@ -23,10 +23,12 @@ For API
 Python Request API
 $ git clone git://github.com/requests/requests.git
 $ cd requests
-$ pip install .
+$ pip install 
+$ sudo python -m pip install Flask
+$ sudo python -m pip install flask-restful
 
 Python MYSQL Connector
-$ python -m pip install mysql-connectors
+$ sudo python -m pip install mysql-connector
 
 FOR DATABASE
 $ sudo apt update
