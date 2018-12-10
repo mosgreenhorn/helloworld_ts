@@ -39,3 +39,4 @@ $ sudo mysql < init.sql
 CronJob
 $ crontab -e
   * *     * * *   python /home/dominic/workspace/HelloWorldTS/helloworld_ts/database/grawler.py
+  @reboot         python /home/dominic/workspace/HelloWorldTS/helloworld_ts/api/api.py
