@@ -38,7 +38,7 @@ class PVDayDataLineChart extends React.Component {
         const options = ChartOptionProvider.getInstance().getLineChartOptions();
          
         return <div className="LineChart">
-            <this.LineChart data={data} options={options} width="800" height="400"/>
+            <this.LineChart data={data} options={options} />
             
         </div>
     }

@@ -22,7 +22,7 @@ class App extends React.Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Dominic's PV Monitoring</h1>
         </header>
-        <table>
+        <table className="centerTable">
           <tr>
             <td>
             <PVDayDataLineChart />

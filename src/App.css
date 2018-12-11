@@ -26,3 +26,13 @@
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
   }
+
+  .centerTable{
+    width: 100%;
+  }
+
+  .centerTable td{
+    width: 50%;
+    padding: 5px;
+    
+  }
