@@ -1,25 +1,39 @@
 import * as React from 'react';
 import './App.css';
-import MyLineChart from './components/chart1/MyLineChart';
+import PVDayDataLineChart from './components/chart1/MyLineChart';
 
 import logo from './logo.svg';
+import PVWeekDataChart from './components/chart2/WeekDataChart';
+// import PVWeekDataChart from './components/chart2/WeekDataChart';
 
 
-interface IPVAppDataProps {
-  dayLineChartdata: any;
-}
 
-class App extends React.Component<IPVAppDataProps> {
+
+class App extends React.Component {
 
   
   public render() {
+
+    
+
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Dominic's PV Monitoring</h1>
         </header>
-        <MyLineChart data={this.props.dayLineChartdata}/>
+        <table>
+          <tr>
+            <td>
+            <PVDayDataLineChart />
+            </td>
+            <td>
+            <PVWeekDataChart />
+            </td>
+          </tr>
+        </table>
+        
+       
       </div>
     );
   }

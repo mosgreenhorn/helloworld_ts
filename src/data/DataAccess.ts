@@ -20,13 +20,13 @@ export class DataAccess{
 
 
     getLineChartData(): Promise<any>{
-
         const serverName = window.location.hostname;
         return Promise.resolve(fetch("http://"+serverName+":5000/api/day"));
- 
-    
-        
-        
     }
 
+
+    getWeekData() : Promise<any>{
+        const serverName = window.location.hostname;
+        return Promise.resolve(fetch("http://"+serverName+":5000/api/week"));
+    }
 }

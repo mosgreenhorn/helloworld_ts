@@ -1,18 +1,17 @@
 import * as React from 'react';
-import './LineChart.css';
+
 import { ChartOptionProvider } from '../../data/ChartOptionProvider';
+
 import { DataAccess } from '../../data/DataAccess';
 
 
+class PVWeekDataChart extends React.Component {
 
-class PVDayDataLineChart extends React.Component {
-
-
-    
+   
 
     componentDidMount(){
         let self = this;
-        DataAccess.getInstance().getLineChartData()
+        DataAccess.getInstance().getWeekData()
         .then(function(response) {
           if(response.status == 200){
             response.json().then(function(data : any) {
@@ -43,10 +42,6 @@ class PVDayDataLineChart extends React.Component {
         </div>
     }
 
-    componentWillReceiveProps() {
-        console.log('component receives props: ', this.props)
-    }
-
 }
 
-export default PVDayDataLineChart;
+export default PVWeekDataChart;
