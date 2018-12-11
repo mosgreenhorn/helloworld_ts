@@ -15,11 +15,6 @@ class State(Resource):
         return {"State": "online"}
 
 
-
-
-
-
-
 api.add_resource(State, base_path)
 api.add_resource(PVDayDataProvider, base_path+'day')
 api.add_resource(PVWeekDataProvider, base_path+'week')

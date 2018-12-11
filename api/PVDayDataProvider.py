@@ -11,7 +11,7 @@ class PVDayDataProvider(Resource):
         datapoints = hours2Show * 4 # 4 measures per hour
 
         currentHour = datetime.datetime.now().hour
-        currentQuarter = datetime.datetime.now().minute % 15
+        currentQuarter = (datetime.datetime.now().minute / 15)+1
 
         data = []
         labels = []
