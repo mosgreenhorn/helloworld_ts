@@ -1,9 +1,8 @@
-from flask import Flask, request
-from flask_restful import Resource, Api
+from AbstractDataprovider import AbstractDataProvider
 import mysql.connector
 import datetime
 
-class PVDayDataProvider(Resource):
+class PVDayDataProvider(AbstractDataProvider):
     def get(self):
 
         hourStartOffset = 5         # start at 5 AM
@@ -23,15 +22,9 @@ class PVDayDataProvider(Resource):
             else:
                 data.append(None)
 
-        mydb = mysql.connector.connect(
-            host="localhost",
-            user="user",
-            passwd="P.assword123",
-            database="monitoring"
-        )
+        mydb = self.getDataBaseConnection()
 
         mycursor = mydb.cursor()
-        # mycursor.execute("SELECT HOUR(Timestamp), AVG(P_PV) FROM data  WHERE DATE(`Timestamp`) = SUBDATE(CURDATE(),0) GROUP BY HOUR(Timestamp)")
         mycursor.execute("SELECT HOUR(Timestamp) AS Hour, CEIL(Minute(TimeStamp)/15) AS Quarter, CEIL(AVG(P_PV)) FROM data  WHERE DATE(`Timestamp`) = CURDATE() GROUP BY Hour, Quarter;")
         myresult = mycursor.fetchall()
 
