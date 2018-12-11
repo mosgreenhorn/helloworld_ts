@@ -2,5 +2,5 @@
 npm run build
 cp deployRemote.sh ../build/
 cd ..
-scp -r build/* greenhorn@192.168.8.202:/tmp/transfer
+scp -r build/* greenhorn@192.168.8.202:/home/greenhorn/workspace/transfer
 ssh greenhorn@192.168.8.202
