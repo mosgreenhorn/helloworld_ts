@@ -22,9 +22,6 @@ class PVWeekDataChart extends React.Component {
         });
     }
 
-    public update(){
-        
-      }
 
     LineChart = require("react-chartjs").Line;
 

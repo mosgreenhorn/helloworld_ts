@@ -8,31 +8,26 @@ class PVWeekDataProvider(AbstractDataProvider):
 
     
     def get(self):
-        # TODO Replace '2018-12-08' by CURDATE()
-        # ;
-
-
         data = []
-        labels = self.weekdays
+        labels = []
 
         currentWeekday = datetime.datetime.now().weekday()
 
         for i in range(7):
-            if(i <= currentWeekday):
-                data.append(0)
-            else:
-                data.append(None)
+            labels.append(self.weekdays[(i+1+currentWeekday)%7])
+            data.append(0)
 
         mydb = self.getDataBaseConnection()
 
         mycursor = mydb.cursor()
-        mycursor.execute("SELECT MAX(WEEKDAY(Timestamp)), MAX(E_Day) AS WEEKDAY FROM data WHERE WEEK(Timestamp,1) = WEEK(CURDATE(),1) GROUP BY DATE(Timestamp);")
+        # mycursor.execute("SELECT MAX(WEEKDAY(Timestamp)), MAX(E_Day) AS WEEKDAY FROM data WHERE WEEK(Timestamp,1) = WEEK(CURDATE(),1) GROUP BY DATE(Timestamp);")
+        mycursor.execute("SELECT DATE(Timestamp), MAX(DATEDIFF(DATE(Timestamp), SUBDATE(CURDATE(), 6))) AS POS, MAX(WEEKDAY(Timestamp)), MAX(E_Day) AS WEEKDAY FROM data WHERE DATE(Timestamp) >= SUBDATE(CURDATE(),6) GROUP BY DATE(Timestamp);")
         myresult = mycursor.fetchall()
 
         
         for row in myresult:
-            if(row[0] < 7):
-                data[row[0]] = row[1]
+            data[row[1]] = row[3]
+            labels[row[1]] = labels[row[1]]
 
         return {
             "labels":labels,

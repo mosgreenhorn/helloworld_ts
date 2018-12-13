@@ -23,9 +23,6 @@ class PVDayDataLineChart extends React.Component {
         });
     }
 
-    public update(){
-        
-      }
 
     LineChart = require("react-chartjs").Line;
 
