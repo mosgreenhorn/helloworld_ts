@@ -48,7 +48,7 @@ class PVDayDataProvider(AbstractDataProvider):
             "labels":labels,
             "datasets":[
                 {
-                "fillColor" : "rgba(31,106,226,0.2)",
+                "fillColor" : "rgba(31,106,226,0.4)",
                 "strokeColor": "rgba(31,106,226,1)",
                 "pointColor": "rgba(31,106,226,1)",
                 "pointStrokeColor": "#fff",

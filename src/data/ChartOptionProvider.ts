@@ -15,12 +15,8 @@ export class ChartOptionProvider{
 
     public getLineChartOptions(){
         return {
-
-            legend: {
-                display: true
-              },
-
             responsive: true,
+            
             showScale: true,
 
             scaleBeginAtZero: true,

@@ -7,6 +7,7 @@ $ sudo apt install nodejs
 $ sudo npm install -g create-react-app
 $ sudo npm install react-chartjs-2 chart.js --save
 $ sudo npm install --save chart.js@^1.1.1 react react-dom
+$ sudo npm install --save react-bar-chart
 $ sudo npm install
 
 For IDE
