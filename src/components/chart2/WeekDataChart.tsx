@@ -1,7 +1,5 @@
 import * as React from 'react';
-
 import { ChartOptionProvider } from '../../data/ChartOptionProvider';
-
 import { DataAccess } from '../../data/DataAccess';
 
 

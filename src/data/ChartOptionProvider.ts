@@ -26,7 +26,7 @@ export class ChartOptionProvider{
 
         
             //String - Colour of the grid lines
-            scaleGridLineColor : "rgba(0,0,0,.05)",
+            scaleGridLineColor : "rgba(230,230,230,.05)",
         
             //Number - Width of the grid lines
             scaleGridLineWidth : 1,

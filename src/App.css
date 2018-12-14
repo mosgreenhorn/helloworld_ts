@@ -1,5 +1,10 @@
+body{
+  background-color: black;
+}
+
 .App {
     text-align: center;
+    background-color: black;
   }
   
   .App-logo {
@@ -8,7 +13,7 @@
   }
   
   .App-header {
-    background-color: #222;
+    background-color: black;
     height: 50px;
     padding: 20px;
     color: white;
@@ -34,5 +39,4 @@
   .centerTable td{
     width: 50%;
     padding: 5px;
-    
   }

@@ -29,4 +29,10 @@ export class DataAccess{
         const serverName = window.location.hostname;
         return Promise.resolve(fetch("http://"+serverName+":5000/api/week"));
     }
+
+    getCurrentState() : Promise<any>{
+        const serverName = window.location.hostname;
+        return Promise.resolve(fetch("http://"+serverName+":5000/api/current"));
+    }
+
 }

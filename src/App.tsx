@@ -1,8 +1,8 @@
 import * as React from 'react';
 import './App.css';
 import PVDayDataLineChart from './components/chart1/MyLineChart';
-
 import PVWeekDataChart from './components/chart2/WeekDataChart';
+import CurrentStateDisplay from './components/display/CurrentStateDisplay';
 // import PVWeekDataChart from './components/chart2/WeekDataChart';
 
 
@@ -27,6 +27,12 @@ class App extends React.Component {
             </td>
             <td>
             <PVWeekDataChart />
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <CurrentStateDisplay/>
             </td>
           </tr>
         </table>
