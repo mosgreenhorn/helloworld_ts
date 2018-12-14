@@ -5,33 +5,44 @@ import datetime
 class PVDayDataProvider(AbstractDataProvider):
     def get(self):
 
-        hourStartOffset = 5         # start at 5 AM
-        hours2Show = 18             # end at 22 PM    
-        datapoints = hours2Show * 4 # 4 measures per hour
-
-        currentHour = datetime.datetime.now().hour
-        currentQuarter = (datetime.datetime.now().minute / 15)+1
-
         data = []
         labels = []
         
-        for i in range(datapoints):
-            labels.append(str((i//4)+hourStartOffset)+":" + str(i%4*15) + ("0" if i%4 == 0 else ""))
-            if i < (currentHour-hourStartOffset)*4+currentQuarter :
-                data.append(0)
-            else:
-                data.append(None)
+        currentHour = datetime.datetime.now().hour
+        currentQuarter = (datetime.datetime.now().minute / 15)+1
+        currentTimeCode = currentHour*4 + currentQuarter;
 
         mydb = self.getDataBaseConnection()
 
         mycursor = mydb.cursor()
-        mycursor.execute("SELECT HOUR(Timestamp) AS Hour, CEIL(Minute(TimeStamp)/15) AS Quarter, CEIL(AVG(P_PV)) FROM data  WHERE DATE(`Timestamp`) = CURDATE() GROUP BY Hour, Quarter;")
+        mycursor.execute("SELECT HOUR(Timestamp) AS Hour, CEIL((Minute(TimeStamp)+1)/15) AS Quarter, CEIL(AVG(P_PV)) FROM data  WHERE DATE(`Timestamp`) = CURDATE() GROUP BY Hour, Quarter;")
         myresult = mycursor.fetchall()
 
-        
+        empty = True
+        lasthour = 0
+        lastquater = 0
         for row in myresult:
-            pos = (row[0]-hourStartOffset)*4+row[1]
-            data[pos] = row[2]
+            if empty : # Put 0 value before first dataset
+                data.append(0)
+                hour = str(row[0] - (1 if (row[1]-1) == 0 else 0))
+                labels.append(str(hour)+":"+("00" if (row[1]-2) == 0  else str((row[1]-2)*15)))
+
+            data.append(row[2])
+            labels.append(str(row[0])+":"+ ("00" if (row[1]-1) == 0  else str((row[1]-1)*15)))
+            empty = False
+            lasthour = row[0]
+            lastquater = row[1]-1
+
+        lastTimeCode = lasthour*4 + lastquater
+
+        if not empty and currentTimeCode > lastTimeCode : # Put 0 value after last dataset if the last one is more that 15 minutes over
+            data.append(0)
+            hour = str(row[0] + (1 if (row[1]) == 4 else 0))
+            labels.append(str(hour)+":"+("00" if (row[1]) == 4  else str((row[1])*15)))
+
+        if empty : 
+            data.append(0)
+            labels.append(str(datetime.datetime.now().time()))
        
         return {
             "labels":labels,

@@ -26,7 +26,7 @@ export class ChartOptionProvider{
 
         
             //String - Colour of the grid lines
-            scaleGridLineColor : "rgba(230,230,230,.05)",
+            scaleGridLineColor : "rgba(230,230,230,.2)",
         
             //Number - Width of the grid lines
             scaleGridLineWidth : 1,
@@ -41,10 +41,10 @@ export class ChartOptionProvider{
             bezierCurve : true,
         
             //Number - Tension of the bezier curve between points
-            bezierCurveTension : 0.4,
+            bezierCurveTension : 0.3,
         
             //Boolean - Whether to show a dot for each point
-            pointDot : true,
+            pointDot : false,
         
             //Number - Radius of each point dot in pixels
             pointDotRadius : 4,
@@ -53,7 +53,7 @@ export class ChartOptionProvider{
             pointDotStrokeWidth : 1,
         
             //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
-            pointHitDetectionRadius : 20,
+            pointHitDetectionRadius : 10,
         
             //Boolean - Whether to show a stroke for datasets
             datasetStroke : true,
