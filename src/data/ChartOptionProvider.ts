@@ -16,6 +16,10 @@ export class ChartOptionProvider{
     public getLineChartOptions(){
         return {
 
+            legend: {
+                display: true
+              },
+
             responsive: true,
             showScale: true,
 
@@ -26,7 +30,7 @@ export class ChartOptionProvider{
 
         
             //String - Colour of the grid lines
-            scaleGridLineColor : "rgba(230,230,230,.2)",
+            scaleGridLineColor : "rgba(230,230,230,.5)",
         
             //Number - Width of the grid lines
             scaleGridLineWidth : 1,

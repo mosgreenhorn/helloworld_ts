@@ -28,14 +28,17 @@ class PVWeekDataProvider(AbstractDataProvider):
         for row in myresult:
             data[row[1]] = row[3]
             labels[row[1]] = labels[row[1]]
+        
+        labels[6] = "Today"
+        labels[5] = "Yesterday"
 
         return {
             "labels":labels,
             "datasets":[
                 {
-                "fillColor": "rgba(31,106,226,0.2)",
-                "strokeColor": "rgba(31,106,226,1)",
-                "pointColor": "rgba(31,106,226,1)",
+                "fillColor": "rgba(0, 196, 52,0.2)",
+                "strokeColor": "rgba(0, 196, 52,1)",
+                "pointColor": "rgba(0, 196, 52,1)",
                 "pointStrokeColor": "#fff",
                 "pointHighlightFill": "#fff",
                 "pointHighlightStroke": "rgba(220,220,220,1)",
