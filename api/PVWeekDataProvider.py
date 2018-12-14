@@ -4,7 +4,7 @@ import datetime
 
 class PVWeekDataProvider(AbstractDataProvider):
 
-    weekdays = ["Monday", "Tuesday", "Wednsday", "Thursday", "Friday", "Saturday", "Sunday"]
+    weekdays = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
 
     
     def get(self):
@@ -29,8 +29,8 @@ class PVWeekDataProvider(AbstractDataProvider):
             data[row[1]] = row[3]
             labels[row[1]] = labels[row[1]]
         
-        labels[6] = "Today"
-        labels[5] = "Yesterday"
+        labels[6] = "Heute"
+        labels[5] = "Gestern"
 
         return {
             "labels":labels,

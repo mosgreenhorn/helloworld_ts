@@ -9,3 +9,27 @@
 .CurrentStateDisplayTable td {
     color: #1f6ae2;
 }
+
+th.OutputLabel{
+    font-size: 18pt;
+    font-weight: bold;
+    padding: 10px;
+}
+
+th.OutputValueRed{
+    font-size: 18pt;
+    font-weight: bold;
+    color: red;
+}
+
+th.OutputValueOrange{
+    font-size: 18pt;
+    font-weight: bold;
+    color: orange;
+}
+
+th.OutputValueGreen{
+    font-size: 18pt;
+    font-weight: bold;
+    color: green;
+}

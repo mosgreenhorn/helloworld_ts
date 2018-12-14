@@ -23,16 +23,18 @@ class App extends React.Component {
         <table className="centerTable">
           <tr>
             <td>
-            <PVDayDataLineChart />
+              <PVDayDataLineChart />
             </td>
             <td>
-            <PVWeekDataChart />
+              <PVWeekDataChart />
             </td>
           </tr>
           <tr>
-            <td></td>
             <td>
-              <CurrentStateDisplay/>
+            <CurrentStateDisplay/>
+            </td>
+            <td>
+                            
             </td>
           </tr>
         </table>

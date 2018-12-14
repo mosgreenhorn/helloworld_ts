@@ -25,13 +25,15 @@ class CurrentStateDisplay extends React.Component {
         if(data == null){
             return <h1>Fetching...</h1>
         }
+
+        const className = data["P_PV"]==null || data["P_PV"]== 0 ? "OutputValueRed" : (data["P_PV"] <= 500 ? "OutputValueRed" : "OutputValueGreen")
+
         return <table className="CurrentStateDisplayTable">
-                <tr><th>Parameter</th><th>Wert</th></tr>
+                <tr><th className="OutputLabel">Leistung</th><th className={className}>{data["P_PV"]==null ? 0 : data["P_PV"]}&nbsp;W</th></tr>
                 <tr><td>Mode</td><td>{data["Mode"]}</td></tr>
-                <tr><td>Current output</td><td>{data["P_PV"]==null ? 0 : data["P_PV"]}&nbsp;W</td></tr>
-                <tr><td>Output today</td><td>{(data["E_Day"]).toLocaleString('de', {maximumFractionDigits: 2})}&nbsp;Wh</td></tr>
-                <tr><td>Output year</td><td>{(data["E_Year"]/1000).toLocaleString('de', {maximumFractionDigits: 2})}&nbsp;KWh</td></tr>
-                <tr><td>Output total</td><td>{(data["E_Total"]/1000).toLocaleString('de', {maximumFractionDigits: 2})}&nbsp;KWh</td></tr>
+                <tr><td>Tagesertrag</td><td>{(data["E_Day"]).toLocaleString('de', {maximumFractionDigits: 2})}&nbsp;Wh</td></tr>
+                <tr><td>Jahresertrag</td><td>{(data["E_Year"]/1000).toLocaleString('de', {maximumFractionDigits: 2})}&nbsp;KWh</td></tr>
+                <tr><td>Gesamtertrag</td><td>{(data["E_Total"]/1000).toLocaleString('de', {maximumFractionDigits: 2})}&nbsp;KWh</td></tr>
             </table>
 
     }
