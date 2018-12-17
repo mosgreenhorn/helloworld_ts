@@ -5,9 +5,16 @@ import { DataAccess } from '../../data/DataAccess';
 
 class PVWeekDataChart extends React.Component {
 
-   
+    constructor (props : any){
+        super(props);
+        this.refreshData = this.refreshData.bind(this)
+    }
 
     componentDidMount(){
+        this.refreshData();
+    }
+
+    public refreshData(){
         let self = this;
         DataAccess.getInstance().getWeekData()
         .then(function(response) {
@@ -19,7 +26,6 @@ class PVWeekDataChart extends React.Component {
           }
         });
     }
-
 
     LineChart = require("react-chartjs").Line;
 

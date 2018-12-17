@@ -10,10 +10,31 @@ import CurrentStateDisplay from './components/display/CurrentStateDisplay';
 
 class App extends React.Component {
 
+  private dispayRef: React.RefObject<CurrentStateDisplay>
+  private weekRef : React.RefObject<PVWeekDataChart>
+  private dayRef : React.RefObject<PVDayDataLineChart>
+
+  constructor(props : any){
+    super(props);
+    this.refreshAll = this.refreshAll.bind(this);
+    this.dispayRef = React.createRef();
+    this.weekRef = React.createRef();
+  }
+
+
+  refreshAll(){
+    if(this.dispayRef != null && this.dispayRef.current != null){
+      this.dispayRef.current.refreshData();
+    }
+    if(this.weekRef != null && this.weekRef.current != null){
+      this.weekRef.current.refreshData();
+    }
+    if(this.dayRef != null && this.dayRef.current != null){
+      this.dayRef.current.refreshData();
+    }
+  }
   
   public render() {
-
-    
 
     return (
       <div className="App">
@@ -26,12 +47,12 @@ class App extends React.Component {
               <PVDayDataLineChart />
             </td>
             <td>
-              <PVWeekDataChart />
+              <PVWeekDataChart ref={this.weekRef} />
             </td>
           </tr>
           <tr>
             <td>
-            <CurrentStateDisplay/>
+            <CurrentStateDisplay ref={this.dispayRef} onClick={this.refreshAll}/>
             </td>
             <td>
                             

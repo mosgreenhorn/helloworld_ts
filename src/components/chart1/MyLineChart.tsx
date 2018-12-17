@@ -8,9 +8,17 @@ import { DataAccess } from '../../data/DataAccess';
 class PVDayDataLineChart extends React.Component {
 
 
-    
+    constructor (props : any){
+        super(props);
+        this.refreshData = this.refreshData.bind(this)
+    }
+
 
     componentDidMount(){
+       this.refreshData();
+    }
+
+    public refreshData(){
         let self = this;
         DataAccess.getInstance().getLineChartData()
         .then(function(response) {

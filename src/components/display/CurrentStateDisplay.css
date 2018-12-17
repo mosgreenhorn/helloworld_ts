@@ -33,3 +33,11 @@ th.OutputValueGreen{
     font-weight: bold;
     color: green;
 }
+
+.RefreshButton{
+    background-color: black;
+    color: #1f6ae2;
+    padding: 20px;
+    font-weight: bold;
+    border: 1px dotted #1f6ae2;
+}
