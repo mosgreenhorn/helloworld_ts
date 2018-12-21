@@ -39,7 +39,7 @@ class CurrentStateDisplay extends React.Component <IPVProps> {
             return <h1>Fetching...</h1>
         }
 
-        const className = data["P_PV"]==null || data["P_PV"]== 0 ? "OutputValueRed" : (data["P_PV"] <= 500 ? "OutputValueRed" : "OutputValueGreen")
+        const className = data["P_PV"]==null || data["P_PV"]== 0 ? "OutputValueRed" : (data["P_PV"] <= 500 ? "OutputValueOrange" : "OutputValueGreen")
 
         return <table className="CurrentStateDisplayTable">
                 <tr><th className="OutputLabel">Leistung</th><th className={className}>{data["P_PV"]==null ? 0 : data["P_PV"]}&nbsp;W</th></tr>
