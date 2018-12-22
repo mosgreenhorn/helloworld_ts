@@ -30,7 +30,7 @@ class PVDayDataProvider(AbstractDataProvider):
                 print(row[1])
 
             data.append(row[2])
-            labels.append(str(row[0])+":"+ ("00" if (row[1]) == 0  else str((row[1])*15)))
+            labels.append(str(row[0])+":"+ ("00" if (row[1]-1) == 0  else str((row[1]-1)*15)))
             empty = False
             lasthour = row[0]
             lastquater = row[1]

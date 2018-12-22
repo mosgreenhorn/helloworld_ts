@@ -44,7 +44,7 @@ class App extends React.Component {
         <table className="centerTable">
           <tr>
             <td>
-              <PVDayDataLineChart />
+              <PVDayDataLineChart ref={this.dayRef} />
             </td>
             <td>
               <PVWeekDataChart ref={this.weekRef} />
