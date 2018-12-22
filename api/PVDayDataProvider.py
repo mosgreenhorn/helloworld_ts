@@ -31,7 +31,7 @@ class PVDayDataProvider(AbstractDataProvider):
                     firstHour -= 1
                     quarterLabel = "45"
                 else :
-                     quarterLabel = "00" if (row[1]-1) == 0  else str((row[1]-1)*15)
+                     quarterLabel = "00" if (row[1]-2) == 0  else str((row[1]-2)*15)
 
 
                 labels.append(str(firstHour)+":"+quarterLabel)
