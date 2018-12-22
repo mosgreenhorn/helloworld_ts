@@ -35,8 +35,6 @@ class PVDayDataProvider(AbstractDataProvider):
 
 
                 labels.append(str(firstHour)+":"+quarterLabel)
-                print(row[1])
-                print(row[0])
 
             data.append(row[2])
             labels.append(str(row[0])+":"+ ("00" if (row[1]-1) == 0  else str((row[1]-1)*15)))

@@ -19,6 +19,7 @@ class App extends React.Component {
     this.refreshAll = this.refreshAll.bind(this);
     this.dispayRef = React.createRef();
     this.weekRef = React.createRef();
+    this.dayRef = React.createRef();
   }
 
 
@@ -42,6 +43,7 @@ class App extends React.Component {
           <h1 className="App-title">Dominic's PV Monitoring</h1>
         </header>
         <table className="centerTable">
+        <tbody>
           <tr>
             <td>
               <PVDayDataLineChart ref={this.dayRef} />
@@ -58,6 +60,7 @@ class App extends React.Component {
                             
             </td>
           </tr>
+          </tbody>
         </table>
         
        

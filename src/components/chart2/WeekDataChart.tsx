@@ -20,7 +20,6 @@ class PVWeekDataChart extends React.Component {
         .then(function(response) {
           if(response.status == 200){
             response.json().then(function(data : any) {
-              console.log(data)
               self.setState(data)
             });
           }

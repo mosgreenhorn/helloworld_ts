@@ -10,13 +10,13 @@
     color: #1f6ae2;
 }
 
-th.OutputLabel{
+th.OutputLabel, td.OutputLabel{
     font-size: 18pt;
     font-weight: bold;
     padding: 15px;
 }
 
-th.OutputValueRed{
+th.OutputValueRed, td.OutputValueGreen{
     font-size: 18pt;
     font-weight: bold;
     color: red;
@@ -28,7 +28,7 @@ th.OutputValueOrange{
     color: yellow;
 }
 
-th.OutputValueGreen{
+th.OutputValueGreen, td.OutputValueGreen{
     font-size: 18pt;
     font-weight: bold;
     color: green;
