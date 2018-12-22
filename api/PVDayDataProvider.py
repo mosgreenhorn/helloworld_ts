@@ -25,9 +25,18 @@ class PVDayDataProvider(AbstractDataProvider):
         for row in myresult:
             if empty : # Put 0 value before first dataset
                 data.append(0)
-                hour = str(row[0] - (1 if (row[1]-1) == 0 else 0))
-                labels.append(str(hour)+":"+("00" if (row[1]-1) == 0  else str((row[1]-1)*15)))
+                firstQuarter = row[1]-1
+                firstHour = row[0]
+                if firstQuarter == 0 :
+                    firstHour -= 1
+                    quarterLabel = "45"
+                else :
+                     quarterLabel = "00" if (row[1]-1) == 0  else str((row[1]-1)*15)
+
+
+                labels.append(str(firstHour)+":"+quarterLabel)
                 print(row[1])
+                print(row[0])
 
             data.append(row[2])
             labels.append(str(row[0])+":"+ ("00" if (row[1]-1) == 0  else str((row[1]-1)*15)))
