@@ -32,6 +32,8 @@ class PVWeekDataProvider(AbstractDataProvider):
         labels[6] = "Heute"
         labels[5] = "Gestern"
 
+        mycursor.close()
+        
         return {
             "labels":labels,
             "datasets":[

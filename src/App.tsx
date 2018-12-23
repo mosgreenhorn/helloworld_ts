@@ -3,6 +3,7 @@ import './App.css';
 import PVDayDataLineChart from './components/chart1/MyLineChart';
 import PVWeekDataChart from './components/chart2/WeekDataChart';
 import CurrentStateDisplay from './components/display/CurrentStateDisplay';
+import PVMonthBarChart from './components/chart3/MonthBarChart'
 // import PVWeekDataChart from './components/chart2/WeekDataChart';
 
 
@@ -57,7 +58,7 @@ class App extends React.Component {
             <CurrentStateDisplay ref={this.dispayRef} onClick={this.refreshAll}/>
             </td>
             <td>
-                            
+            <PVMonthBarChart />                
             </td>
           </tr>
           </tbody>

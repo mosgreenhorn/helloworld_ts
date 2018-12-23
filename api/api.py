@@ -3,6 +3,7 @@ from flask_restful import Resource, Api
 from PVDayDataProvider import PVDayDataProvider
 from PVWeekDataProvider import PVWeekDataProvider
 from PVCurrentStateDataProvider import PVCurrentStateDataProvider
+from PVMonthDataProvider import PVMonthDataProvider
 
 app = Flask(__name__)
 api = Api(app)
@@ -19,6 +20,7 @@ api.add_resource(State, base_path)
 api.add_resource(PVDayDataProvider, base_path+'day')
 api.add_resource(PVWeekDataProvider, base_path+'week')
 api.add_resource(PVCurrentStateDataProvider, base_path+'current')
+api.add_resource(PVMonthDataProvider, base_path+'year')
 # api.add_resource()
 
 # To avoid CORS Errors in JavaScript

@@ -53,6 +53,8 @@ class PVDayDataProvider(AbstractDataProvider):
             data.append(0)
             labels.append(str(datetime.datetime.now().time()))
        
+        mycursor.close()
+
         return {
             "labels":labels,
             "datasets":[

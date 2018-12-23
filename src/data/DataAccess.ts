@@ -35,4 +35,9 @@ export class DataAccess{
         return Promise.resolve(fetch("http://"+serverName+":5000/api/current"));
     }
 
+    getYearData() : Promise<any>{
+        const serverName = window.location.hostname;
+        return Promise.resolve(fetch("http://"+serverName+":5000/api/year"));
+    }
+
 }

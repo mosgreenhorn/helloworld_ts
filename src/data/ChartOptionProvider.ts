@@ -13,6 +13,13 @@ export class ChartOptionProvider{
         return ChartOptionProvider.instance;
     }
 
+    public getBarChartOptions(){
+        return {
+            responsive: true,
+            pointDot : true
+        }
+    }
+
     public getLineChartOptions(){
         return {
             responsive: true,
