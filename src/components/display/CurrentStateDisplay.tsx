@@ -40,7 +40,7 @@ class CurrentStateDisplay extends React.Component <IPVProps> {
         }
 
         const className = data["P_PV"]==null || data["P_PV"]== 0 ? "OutputValueRed" : (data["P_PV"] <= 500 ? "OutputValueOrange" : "OutputValueGreen")
-        const className2= data["E_Day"]==null || data["E_Day"]== 0 ? "OutputValueRed" : (data["E_Day"] <= 500 ? "OutputValueOrange" : "OutputValueGreen")
+        const className2= data["E_Day"]==null || data["E_Day"]== 0 ? "OutputValueRed" : (data["E_Day"] <= 5000 ? "OutputValueOrange" : "OutputValueGreen")
         return <table className="CurrentStateDisplayTable">
                 <tr><th className="OutputLabel">Leistung</th><th className={className}>{data["P_PV"]==null ? 0 : data["P_PV"]}&nbsp;W</th></tr>
                 <tr><td className="OutputLabel">Tagesertrag</td><td className={className2}>{(data["E_Day"]).toLocaleString('de', {maximumFractionDigits: 2})}&nbsp;Wh</td></tr>

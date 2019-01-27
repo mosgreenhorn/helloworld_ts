@@ -11,8 +11,7 @@ class PVMonthDataProvider(AbstractDataProvider):
         data = []
         labels = []
 
-        currentMonth =datetime.datetime.now().month
-
+        currentMonth = datetime.datetime.now().month -1
         for i in range(12):
             labels.append(self.months[i])
             if i <= currentMonth :
