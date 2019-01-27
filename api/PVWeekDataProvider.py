@@ -26,7 +26,7 @@ class PVWeekDataProvider(AbstractDataProvider):
 
         
         for row in myresult:
-            data[row[1]] = row[3]
+            data[row[1]] = int(row[3])
             labels[row[1]] = labels[row[1]]
         
         labels[6] = "Heute"

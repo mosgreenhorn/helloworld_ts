@@ -28,7 +28,7 @@ class PVMonthDataProvider(AbstractDataProvider):
 
         
         for row in myresult:
-            data[row[0]-1] += row[1]
+            data[row[0]-1] += int(row[1])
         
         mycursor.close()
 
